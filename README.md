@@ -51,6 +51,15 @@ transform = transforms.Compose([
 ])
 ```
 
+## Results
+Here are two examples of generated images after training:
+
+### Result 1
+![MNIST]([result1.gif](https://imgur.com/Qpy4seX))
+
+### Result 2
+![MRI]([result2.gif](https://imgur.com/GnDEDqP))
+
 ## Test
 You can test the project by running the `Test.py` file with the following command:
 ```bash
