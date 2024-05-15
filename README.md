@@ -1,22 +1,68 @@
 # DCGANs
-An Implementation of Deep Convolutional GANs using PyTorch and well structured using OOP.
-this project was written on PC has the following:
-- Windows 11
-- Nvidia : GTX 1050 Ti
-- CPU : i7-8750H
-- RAM : 16 GB
-- CUDA : 11.8 (from pytorch using pip command)
-- Anaconda with Python 3.11+
 
-Parameters:
-before running the project make sure you have Nvidia CUDA installed on you PC.
-Exaplanation :
-CHANNELS_IMG = 3 (This is automatically uncomment, I assumed that MRI dataset or any other dataset is RGB image which means that you have 3 channels)
-# CHANNELS_IMG = 1 (If you are sure you MNIST data or any data that has monocolor you can uncomment this line)
-Z_DIM = 100 (the noise dimention)
-NUM_EPOCHS = 50 (how manytimes the data will be training at once)
+## Overview
+This project is an implementation of Deep Convolutional Generative Adversarial Networks (DCGANs) using PyTorch, structured with Object-Oriented Programming (OOP) principles.
 
+## System Specifications
+- **Operating System:** Windows 11
+- **GPU:** Nvidia GTX 1050 Ti
+- **CPU:** Intel Core i7-8750H
+- **RAM:** 16 GB
+- **CUDA Version:** 11.8 (installed via PyTorch using pip command)
+- **Anaconda:** Python 3.11+
 
-to run the script:
-python ./Training.py
+## Parameters
+Before running the project, ensure that Nvidia CUDA is installed on your PC.
 
+### Explanation
+- **CHANNELS_IMG:** 
+    - Automatically uncommented: Assumes the dataset is RGB images with 3 channels.
+    - Uncomment manually: If using MNIST dataset or any dataset with monocolor (1 channel).
+- **Z_DIM:** Noise dimension (set to 100).
+- **NUM_EPOCHS:** Number of training epochs (set to 50).
+
+## MNIST Dataset
+To use the MNIST dataset:
+- Uncomment line 25 in `Training.py`.
+- Comment line 24.
+
+Note: The MNIST dataset is available to download via a Python script. Other datasets must be downloaded manually and placed in their respective folders (/MRI/, /celeb_dataset/, etc.).
+
+## Edit the Transforms
+- For 3 channels: Uncomment line 19 and comment line 20 in `Training.py`.
+- For 1 channel: Uncomment line 20 and comment line 19 in `Training.py`.
+
+### 3 Channels:
+```python
+transform = transforms.Compose([
+    transforms.Resize((IMAGE_SIZE, IMAGE_SIZE)),
+    transforms.ToTensor(),
+    transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
+])
+```
+
+### 1 Channel:
+```python
+transform = transforms.Compose([
+    transforms.Resize((IMAGE_SIZE, IMAGE_SIZE)),
+    transforms.ToTensor(),
+    # transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
+    transforms.Normalize((0.5,), (0.5,))
+])
+```
+
+## Test
+You can test the project by running the `Test.py` file with the following command:
+```bash
+python Test.py
+```
+or
+```bash
+python main.py
+```
+
+## Run the Script
+To run the script:
+```bash
+python Training.py
+```
