@@ -54,10 +54,10 @@ transform = transforms.Compose([
 ## Results
 Here are two examples of generated images after training:
 
-### Result 1
+### MNIST
 ![MNIST](https://i.imgur.com/Qpy4seX.gif)
 
-### Result 2
+### MRI
 ![MRI](https://i.imgur.com/GnDEDqP.gif)
 
 ## Test
